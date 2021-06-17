@@ -1,0 +1,105 @@
+﻿@*@model IEnumerable<Interno.Models.Transport>*@
+@model PagedList.IPagedList<Interno.Models.Transport>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Transportadoras";
+}
+
+<div class="mt-4 mb-5">
+
+    <div class="float-left">
+        @Html.ActionLink("Criar novo", "Create", null, new { @class = "btn btn-primary rounded-pill m-1" })
+    </div>
+
+    <div class="float-right">
+        <form asp-controller="Transport" asp-action="Index">
+            <div class="input-group">
+                <input id="inputKey" type="text" class="form-control rounded-pill m-1" name="searchKey">
+                <input type="submit" value="Buscar" class="btn btn-primary rounded-pill m-1" />
+            </div>
+        </form>
+
+        <form class="form float-right" asp-controller="Transport" asp-action="Index">
+            <input type="submit" class="btn btn-secondary rounded-pill pt-1 pb-1 mb-2 mt-2" value="Limpar Pesquisa" />
+        </form>
+    </div>
+
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].TRANSP_NOME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].TRANSP_CNPJ)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TRANSP_NOME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TRANSP_CNPJ)
+                </td>
+                <td>
+                    <div class="icon-group">
+                        @Html.ActionLink(" ", "Index", "Transports_c", new { transp_id = item.TRANSP_ID }, new { @class = "icon btn rounded-square  pt-0 pb-0 m-1 info-icon" })
+                        @Html.ActionLink(" ", "Edit", "Transports", new { id = item.TRANSP_ID }, new { @class = "icon btn rounded-square pt-0 pb-0 m-1 edit-icon" })
+                        @Html.ActionLink(" ", "Delete", "Transports", new { @id = item.TRANSP_ID, @controller = "Transports", @class = string.Format("icon btn rounded-square pt-0 pb-0 m-1 delete-button trash-icon"), @Href = "#deleteModal", @data_toggle = "modal" })
+                        @*@Html.ActionLink("Edit", "Edit", "Transports", new { id = item.TRANSP_ID }, new { @class = "btn btn-success rounded-pill pt-0 pb-0 m-1" })*@
+                        @*@Html.ActionLink("Detalhes", "Index", "Transports_c", new { transp_id = item.TRANSP_ID }, new { @class = "btn btn-primary rounded-pill pt-0 pb-0 m-1" })*@
+                        @*@Html.ActionLink("Deletar", "Delete", "Transports", new { @id = item.TRANSP_ID, @controller = "Transports", @class = string.Format("btn btn-danger rounded-pill pt-0 pb-0 m-1 delete-button"), @Href = "#deleteModal", @data_toggle="modal" })*@
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchKey = ViewBag.SearchKey }))
+
+Mostrando @Model.Count() de @ViewBag.TotalTransp Registros
+
+
+<!-- Modal HTML -->
+<div id="deleteModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Atenção!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p>Você tem certeza de que deseja remover este registro?</p>
+            </div>
+
+            <div class="modal-footer">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input id="btn-delete-confirm" type="submit" value="Deletar" class="btn btn-danger" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

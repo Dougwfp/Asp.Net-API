@@ -1,0 +1,68 @@
+@font-face {
+   font-family: 'Helvetica';
+   src: url('hn200.eot');
+   src: url('hn200.eot?#iefix') format('embedded-opentype'),
+      url('hn200.woff') format('woff'),
+      url('hn200.ttf') format('truetype'),
+      url('hn200.svg#HelveticaNeueLTCom-UltLtCn') format('svg');
+   font-weight: 200;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Helvetica';
+   src: url('hn300.eot');
+   src: url('hn300.eot?#iefix') format('embedded-opentype'),
+      url('hn300.woff') format('woff'),
+      url('hn300.ttf') format('truetype'),
+      url('hn300.svg#HelveticaNeueLTCom-UltLtCn') format('svg');
+   font-weight: 300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Helvetica';
+   src: url('hn400.eot');
+   src: url('hn400.eot?#iefix') format('embedded-opentype'),
+      url('hn400.woff') format('woff'),
+      url('hn400.ttf') format('truetype'),
+      url('hn400.svg#HelveticaNeueLTCom-UltLtCn') format('svg');
+   font-weight: 400;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Helvetica';
+   src: url('hn700.eot');
+   src: url('hn700.eot?#iefix') format('embedded-opentype'),
+      url('hn700.woff') format('woff'),
+      url('hn700.ttf') format('truetype'),
+      url('hn700.svg#HelveticaNeueLTCom-UltLtCn') format('svg');
+   font-weight: 700;
+   font-style: normal;
+}
+
+
+/* ITALICAS */
+
+@font-face {
+   font-family: 'Helvetica';
+   src: url('hno400.eot');
+   src: url('hno400.eot?#iefix') format('embedded-opentype'),
+      url('hno400.woff') format('woff'),
+      url('hno400.ttf') format('truetype'),
+      url('hno400.svg#HelveticaNeueLTCom-UltLtCnO') format('svg');
+   font-weight: 400;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'Helvetica';
+   src: url('hno700.eot');
+   src: url('hno700.eot?#iefix') format('embedded-opentype'),
+      url('hno700.woff') format('woff'),
+      url('hno700.ttf') format('truetype'),
+      url('hno700.svg#HelveticaNeueLTCom-UltLtCnO') format('svg');
+   font-weight: 700;
+   font-style: italic;
+}

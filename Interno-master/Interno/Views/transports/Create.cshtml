@@ -1,0 +1,46 @@
+﻿@model Interno.Models.Transport
+
+@{
+    ViewBag.Title = "Criar nova Transportadora";
+}
+
+
+@using (Html.BeginForm("Create", "Transports", FormMethod.Post, new { @class="mt-4" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h1 class="title-item">@ViewBag.Title</h1>
+
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TRANSP_CNPJ, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TRANSP_CNPJ, new { htmlAttributes = new { @class = "form-control maskCnpj inputCnpj", @id = "TRANSP_CNPJ", @Autofocus = "true" } })
+            @Html.ValidationMessageFor(model => model.TRANSP_CNPJ, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TRANSP_NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TRANSP_NOME, new { htmlAttributes = new { @class = "form-control", @Maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.TRANSP_NOME, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Criar" class="btn btn-primary btn-default" id="btnSubmit" disabled />
+            @Html.ActionLink("Voltar", "Index", "Transports", null, new { @class = "btn btn-secondary m-1 " })
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

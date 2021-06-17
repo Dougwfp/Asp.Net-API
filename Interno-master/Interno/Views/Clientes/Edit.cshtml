@@ -1,0 +1,38 @@
+﻿@model Interno.Models.Cliente
+
+@{
+    ViewBag.Title = "Editar Cliente";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal mt-4 mb-5">
+
+        <h1 class="title-item">@ViewBag.Title</h1>
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CLIENTE_ID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.CLIENTE_CNPJ, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CLIENTE_CNPJ, new { htmlAttributes = new { @class = "form-control maskCnpj", @Readonly = true } })
+                @Html.ValidationMessageFor(model => model.CLIENTE_CNPJ, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CLIENTE_NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CLIENTE_NOME, new { htmlAttributes = new { @class = "form-control", @Autofocus = "true", @Maxlength = "100" } })
+                @Html.ValidationMessageFor(model => model.CLIENTE_NOME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                @Html.ActionLink("Voltar", "Index", "Clientes", null, new { @class = "btn btn-secondary m-1 " })
+            </div>
+        </div>
+    </div>
+}

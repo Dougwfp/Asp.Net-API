@@ -1,0 +1,41 @@
+﻿@model Interno.Models.Transport_c
+
+@{
+    ViewBag.Title = "Criar Nova Transportadora Conversão";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal mt-4 mb-5">
+    <h1 class="title-item">@ViewBag.Title</h1>
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.TRANSP_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TRANSP_ID, new { htmlAttributes = new { @class = "form-control mt-2", @readonly = true, @Value = ViewBag.transp_id } })
+            @Html.ValidationMessageFor(model => model.TRANSP_ID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TRANSP_NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TRANSP_NOME, new { htmlAttributes = new { @class = "form-control  mt-2", @Autofocus = "true", @Maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.TRANSP_NOME, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Criar" class="btn btn-primary" />
+            @Html.ActionLink("Voltar", "Index", new { transp_id = ViewBag.transp_id }, new { @class = "btn btn-secondary m-1 " })
+
+        </div>
+    </div>
+</div>
+}

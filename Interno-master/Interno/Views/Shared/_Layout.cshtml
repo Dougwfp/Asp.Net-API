@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+
+    <script src="~/Scripts/custom/Elements.js"></script>
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="~/Images/favicon.ico" />
+
+    <link href="~/Content/_fonts/_helvetica/fontface.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/myStyle.css">
+
+
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    @Html.Partial("~/Views/Shared/_Strings.cshtml")
+</head>
+<body>
+
+    @Html.Partial("~/Views/Shared/_Header.cshtml")
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+
+    </div>
+
+    @Html.Partial("~/Views/Shared/_Footer.cshtml")
+
+
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/custom/masks.js"></script>
+    <script src="~/Scripts/custom/lib.js"></script>
+    <script src="~/Scripts/custom/myScript.js"></script>
+
+
+
+</body>
+</html>

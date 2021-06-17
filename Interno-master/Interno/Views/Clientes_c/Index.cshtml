@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Interno.Models.Cliente_c>
+
+@{
+    ViewBag.Title = "Clientes Conversão";
+
+}
+
+
+
+
+<div class="mt-4 mb-5">
+
+    <h1 class="title-item">@ViewBag.Title</h1>
+
+    <label class="ml-4 font-weight-bold mt-4">ID :</label> <span>@ViewBag.cliente_id</span>
+    <label class="ml-4 font-weight-bold">CNPJ :</label> <span>@ViewBag.cliente_cnpj</span>
+    <label class="ml-4 font-weight-bold">NOME :</label> <span>@ViewBag.cliente_nome</span>
+
+    <hr />
+
+    <div>
+
+        <div class="float-left">
+            @Html.ActionLink("Criar novo", "Create", new { cliente_id = @ViewBag.cliente_id }, new { @class = "btn btn-primary m-1 mb-3" })
+        </div>
+
+        @*<div class="float-right">
+                <form asp-controller="Cliente" asp-action="Index">
+                    <div class="input-group">
+                        <input id="inputKey" type="text" class="form-control rounded-pill m-1" name="searchKey">
+                        <input type="submit" value="Buscar" class="btn btn-primary rounded-pill m-1" />
+                    </div>
+                </form>
+
+                <form class="form float-right" asp-controller="Cliente" asp-action="Index">
+                    <input type="submit" class="btn btn-secondary rounded-pill pt-1 pb-2 m-2" value="Limpar Pesquisa" />
+                </form>
+            </div>*@
+
+    </div>
+
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CLIENTE_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLIENTE_NOME)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLIENTE_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLIENTE_NOME)
+                </td>
+                <td class="last-td">
+                    <div class="icon-group">
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.CLIENTE_C_ID }) |*@
+                        @*@Html.ActionLink("Details", "Details", new { id = item.CLIENTE_C_ID }, new { @class = "btn btn-primary rounded-pill pt-0 pb-0 m-1" })*@
+                        <form method="post" action=".Clientes_c/Delete/?id=@item.CLIENTE_C_ID&cliente_id=@item.CLIENTE_ID">
+                            <input class="icon btn rounded-square pt-0 pb-0 m-1 delete-button trash-icon" method="post" value="" type="submit" onclick="return confirm(`Tem certeza que deseja excluir o item @item.CLIENTE_NOME `);">
+                        </form>
+
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.ActionLink("Voltar", "Index", "Clientes", null, new { @class = "btn btn-secondary m-1 mb-3" })
+
+    <!-- Modal HTML -->
+    <div id="deleteModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Atenção!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <p>Você tem certeza de que deseja remover este registro?</p>
+                </div>
+
+                <div class="modal-footer">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input id="btn-delete-confirm" type="submit" value="Deletar" class="btn btn-danger" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

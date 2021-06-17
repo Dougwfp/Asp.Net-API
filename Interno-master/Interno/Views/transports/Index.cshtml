@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Interno.Models.Transport>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+@{
+    ViewBag.Title = "Transportadoras";
+
+}
+
+<div class="mt-4 mb-5">
+
+    <h1 class="title-item">@ViewBag.Title</h1>
+
+    <hr />
+
+    <div class="float-left">
+        @Html.ActionLink("Criar novo", "Create", null, new { @class = "btn btn-primary m-1" })
+    </div>
+
+    <div class="float-right">
+        @*<form asp-controller="Transports" asp-action="Index">*@
+        <div class="input-group">
+            <input id="inputSearchKey" type="text" class="form-control m-1" name="searchKey">
+            <input id="submitSearchKey" type="submit" value="Buscar" class="btn btn-primary m-1" />
+        </div>
+        @*</form>*@
+
+        <form class="form float-right" asp-controller="Transport" asp-action="Index">
+            <input type="submit" class="btn btn-secondary pt-1 pb-1 mb-2 mt-2" value="Limpar Pesquisa" />
+        </form>
+    </div>
+
+</div>
+
+<table class="table table-striped" id="itens_table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TRANSP_NOME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TRANSP_CNPJ)
+            </th>
+            <th>
+                <select id="pageSize" class="browser-default custom-select last-th">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">Todos</option>
+                </select>
+            </th>
+        </tr>
+    </thead>
+    <tbody id="itens_tableBody">
+        <tr>
+            <td></td>
+            <td>
+                <img src=""></img>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+@*<br />
+
+    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchKey = ViewBag.SearchKey }))
+
+    Mostrando @Model.Count() de @ViewBag.TotalTransp Registros*@
+
+
+<div id="info_pagination">
+
+    <ul class="pagination" id="pagination_list"></ul>
+
+</div>
+
+
+<!-- Modal HTML -->
+<div id="deleteModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Atenção!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p>Você tem certeza de que deseja remover este registro?</p>
+            </div>
+
+            <div class="modal-footer">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <button id="btn-delete-confirm" type="submit" class="btn btn-danger">Deletar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div style="visibility:hidden; height:5px; width:5px;"> <input id="pagina" type="text" value="@ViewBag.Title" /></div>
+<script src="~/Scripts/custom/pagination.js"></script>
+
+<script>
+    reload();
+    //popularTable();
+    //createPaginationButtons();
+</script>

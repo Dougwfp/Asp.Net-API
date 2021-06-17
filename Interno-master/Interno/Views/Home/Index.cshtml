@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<br />
+
+<p id="demo"></p>
+
+<script>
+var text = '{"birth":"2019/12/29"}';
+var obj = JSON.parse(text);
+obj.birth = new Date(obj.birth);
+document.getElementById("demo").innerHTML = obj.birth;
+</script>
+
+
+<div class="container">
+    <div class="item" style="width:100%;">
+        <img style="width:100%;" src="" alt="Chicago">
+        <div class="carousel-caption">
+        </div>
+    </div>
+
+    <br />
+
+    <div class="contentWrapper cf">
+        <section class="leftWrapper">
+            <section class="empresaWrapper">
+                <div class="title">
+                    A EMPRESA
+                </div>
+                <div class="content">
+                    <p>eProfessionalTI tem como objetivo sempre ser a melhor alternativa em controle de processos e também em automação. Nossa busca esta na continuidade das soluções implementadas, minimizando riscos e custos para o cliente. Os profissionais da eProfessionalTI têm mais de nove anos em desenvolvimento de sistemas ligados à&nbsp; logística de comércio exterior, possuem total conhecimento das necessidades dos terminais portuários, depósitos de containers e recintos alfandegados.</p>
+                </div>
+            </section>
+        </section>
+
+    </div>
+
+</div>
+
+
+
+@*<section class="bannerWrapper">
+        <div id="BannerWrapper" class="bannerWrap">
+            <div id="loading" style="width: 160px; margin: 0px auto; display: none;">
+                <span style="float: left; font-size: 13pt; width: 160px; font-family: 'Arial'; color: #092857; text-align: center; margin-top: 121px;">Carregando...</span>
+                <br>
+                <img style="" src="/image/load.gif">
+            </div>
+            <div id="slider" class="camera_wrap" style="display: block; height: 300px;">
+                <div class="camera_fakehover">
+                    <div class="camera_src camerastarted">
+                        <div class="camera_wrap camera_magenta_skin" data-link="" data-src="">
+
+                        </div>
+                        <div class="camera_wrap camera_magenta_skin" data-link="" data-src="">
+
+                        </div>
+                        <div class="camera_wrap camera_magenta_skin" data-link="" data-src="">
+
+                        </div>
+                    </div>
+                    <div class="camera_target">
+                        <div class="cameraCont">
+                            <div class="cameraSlide cameraSlide_0 cameracurrent" style="visibility: visible; display: block; z-index: 999; margin-left: 0px; margin-top: 0px;">
+                                <img src="" class="imgLoaded" data-alignment="" data-portrait="" width="1920" height="300" style="visibility: visible; height: 300px; margin-left: -285.5px; margin-right: -285.5px; margin-top: 0px; position: absolute; width: 1920px;">
+                                <div class="camerarelative" style="width: 1349px; height: 300px;">
+                                </div>
+                            </div>
+                            <div class="cameraSlide cameraSlide_1 cameranext" style="display: none; z-index: 1; margin-left: 0px; margin-top: 0px;">
+                                <img src="" class="imgLoaded" data-alignment="" data-portrait="" width="1920" height="300" style="visibility: visible; height: 300px; margin-left: -285.5px; margin-right: -285.5px; margin-top: 0px; position: absolute; width: 1920px;">
+                                <div class="camerarelative" style="width: 1349px; height: 300px;">
+                                </div>
+                            </div>
+                            <div class="cameraSlide cameraSlide_2" style="display: none; z-index: 1; margin-left: 0px; margin-top: 0px;">
+                                <img src="" class="imgLoaded" data-alignment="" data-portrait="" width="1920" height="300" style="visibility: visible; height: 300px; margin-left: -285.5px; margin-right: -285.5px; margin-top: 0px; position: absolute; width: 1920px;">
+                                <div class="camerarelative" style="width: 1349px; height: 300px;">
+                                </div>
+                            </div>
+                            <div class="cameraSlide cameraSlide_3 cameranext" style="z-index: 1; display: none;">
+                                <div class="camerarelative" style="width: 1349px; height: 300px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="camera_overlayer">
+                    </div>
+                    <div class="camera_target_content">
+                        <div class="cameraContents">
+                            <div class="cameraContent cameracurrent" style="display: block;">
+                                <div class="fadeIn chamadaBanner" style="visibility: visible; opacity: 1;">
+                                    <div id="content">
+                                        <div class="title">
+                                            Agilidade
+                                        </div>
+                                        Resposta rápida e eficiente aos chamados dos clientes.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cameraContent" style="display: none;">
+                                <div class="fadeIn chamadaBanner" style="visibility: hidden; opacity: 1;">
+                                    <div id="content">
+                                        <div class="title">
+                                            Know how
+                                        </div>
+                                        Equipe capacitada à oferecer soluções eficientes para atender as necessidades.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cameraContent" style="display: none;">
+                                <a class="camera_link" href="" target="">
+                                </a>
+                                <div class="fadeIn chamadaBanner" style="visibility: hidden; opacity: 1;">
+                                    <div id="content">
+                                        <div class="title">
+                                            Credibilidade
+                                        </div>
+                                        A eProfessionalTI atua há mais de 15 anos no segmento portuário.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="camera_pie">
+                        <canvas id="pie_1" width="38" height="38" style="position: absolute; z-index: 1002; right: 0px; top: 0px; display: block; opacity: 0.8;"></canvas>
+                    </div>
+                    <div class="camera_prev" style="opacity: 0;">
+                        <span>
+                        </span>
+                    </div>
+                    <div class="camera_next" style="opacity: 0;">
+                        <span>
+                        </span>
+                    </div>
+                </div>
+                <div class="camera_loader" style="display: none; visibility: visible;">
+                </div>
+            </div>
+        </div>
+    </section>*@

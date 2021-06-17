@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <hgroup>
+        <h1>Erro.</h1>
+        <h2>Um erro ocorreu durante o processamento da requisição.</h2>
+    </hgroup>
+
+    @if (TempData["Message"] != null)
+    {
+        <div>
+            <label>Exceção Gerada: </label> "@TempData["Message"]".
+        </div>
+    }
+
+</body>
+</html>

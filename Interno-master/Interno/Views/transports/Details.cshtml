@@ -1,0 +1,31 @@
+﻿@model Interno.Models.Transport
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<div class="mt-4">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANSP_NOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANSP_NOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANSP_CNPJ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANSP_CNPJ)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.TRANSP_ID }) |*@
+    @Html.ActionLink("Voltar", "Index")
+</p>

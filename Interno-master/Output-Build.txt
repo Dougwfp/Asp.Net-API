@@ -1,0 +1,4 @@
+﻿1>------ Build started: Project: Interno, Configuration: Release Any CPU ------
+1>  Interno -> C:\Users\angel\Source\Github\Interno\Interno\bin\Interno.dll
+1>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\Microsoft\VisualStudio\v15.0\TypeScript\Microsoft.TypeScript.targets(73,5): warning : Your project specifies TypeScriptToolsVersion 3.7, but a matching compiler was not found. The latest available TypeScript compiler will be used (3.1). To remove this warning, install the TypeScript 3.7 SDK or update the value of TypeScriptToolsVersion.
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
